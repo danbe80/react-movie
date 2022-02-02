@@ -16,13 +16,14 @@ function Home(){
     setLoading(false);
   }
   const onClick = (event)=>{
-    const cmovie = movies.filter((movie) => movie.id == event.target.id);
+    // const cmovie = movies.filter((movie) => movie.id == event.target.id);
+    const cmovie = event.target.parent()
     setCurrent(cmovie)
+    console.log(cmovie)
   }
   useEffect(()=>{
     getMovies();
   }, []);
-  console.log(current)
   return(
     <div>
       {loading ? <h1>Loading...</h1> :
@@ -30,15 +31,16 @@ function Home(){
         <div>
           {
             current == null ? <h1>No click</h1> : 
-            <Main 
-            key={current[0].id}
-            id={current[0].id}
-            year={current[0].year}
-            coverImg={current[0].medium_cover_image}
-            title={current[0].title}
-            summary={current[0].summary}
-            genres={current[0].genres}
-          />
+          //   <Main 
+          //   key={current[0].id}
+          //   id={current[0].id}
+          //   year={current[0].year}
+          //   coverImg={current[0].medium_cover_image}
+          //   title={current[0].title}
+          //   summary={current[0].summary}
+          //   genres={current[0].genres}
+          // />
+          <h1>Click</h1>
           }
         </div>
         <hr />
