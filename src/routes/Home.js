@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import Movie from "../components/Movie";
 import Main from "../components/Main";
-import { number } from "prop-types";
+import styles from "./Home.module.css";
 
 function Home(){
   const [loading, setLoading] = useState(true);
@@ -16,10 +16,9 @@ function Home(){
     setLoading(false);
   }
   const onClick = (event)=>{
-    // const cmovie = movies.filter((movie) => movie.id == event.target.id);
-    const cmovie = event.target.parent()
-    setCurrent(cmovie)
-    console.log(cmovie)
+    const cmovie = movies.filter((movie) => movie.id == event.target.id);
+    setCurrent(cmovie[0]);
+    console.log(cmovie[0])
   }
   useEffect(()=>{
     getMovies();
@@ -28,23 +27,25 @@ function Home(){
     <div>
       {loading ? <h1>Loading...</h1> :
       <div>
-        <div>
+        <div className={styles.main_wrap}>
           {
             current == null ? <h1>No click</h1> : 
-          //   <Main 
-          //   key={current[0].id}
-          //   id={current[0].id}
-          //   year={current[0].year}
-          //   coverImg={current[0].medium_cover_image}
-          //   title={current[0].title}
-          //   summary={current[0].summary}
-          //   genres={current[0].genres}
-          // />
-          <h1>Click</h1>
+            <Main 
+            key={current.id}
+            id={current.id}
+            year={current.year}
+            coverImg={current.medium_cover_image}
+            title={current.title}
+            summary={current.summary}
+            genres={current.genres}
+            runtime={current.runtime}
+            rating={current.rating}
+          />
           }
         </div>
         <hr />
-        <div>
+        <h2>Movie</h2>
+        <div className={styles.movie_wrap}>
           {movies.map((movie) => (
             <Movie 
             onClick={onClick}

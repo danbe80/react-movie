@@ -1,0 +1,61 @@
+.cmovie {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cmovie_img {
+  /* 그림자 css 들어갈 예정 */
+  width: 350px;
+  height: 450px;
+}
+.cmovie_detail{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 400px;
+  margin-left: 15px;
+}
+.cmovie_detail > * {
+  margin-top: 5px;
+}
+.cmovie_title {
+  height: 40px;
+  margin: 0;
+  letter-spacing: -1px;
+}
+.cmovie_year {
+  height: 25px;
+}
+.cmovie_detail_ex {
+  height: 25px;
+  display: flex;
+}
+.cmovie_genres {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cmovie_genres > li {
+  margin: 2px;
+}
+.cmovie_rating {
+  margin: 0;
+  padding: 0;
+  height: 25px;
+}
+.cmovie_rating > span {
+  color: rgb(255, 255, 60);
+}
+.cmovie_summary {
+  margin: 0;
+  padding: 0;
+  height: 250px;
+  line-height: 25px;
+}
+.summary_more {
+  text-decoration: underline;
+  cursor: pointer;
+}
