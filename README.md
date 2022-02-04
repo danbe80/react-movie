@@ -38,4 +38,4 @@
 - react-dom
 - react-router-dom
 - prop-types
-- styled-reset
+- react-icons

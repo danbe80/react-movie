@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import Movie from "../components/Movie";
 import Main from "../components/Main";
 import styles from "./Home.module.css";
+import { BsChevronCompactLeft, BsChevronCompactRight }  from "react-icons/bs";
 
 function Home(){
   const [loading, setLoading] = useState(true);
@@ -26,7 +27,7 @@ function Home(){
   return(
     <div>
       {loading ? <h1>Loading...</h1> :
-      <div>
+      <div className={styles.wrap}>
         <div className={styles.main_wrap}>
           {
             current == null ? <h1>No click</h1> : 
@@ -35,6 +36,7 @@ function Home(){
             id={current.id}
             year={current.year}
             coverImg={current.medium_cover_image}
+            bgImg={current.large_cover_image}
             title={current.title}
             summary={current.summary}
             genres={current.genres}
@@ -43,21 +45,23 @@ function Home(){
           />
           }
         </div>
-        <hr />
-        <h2>Movie</h2>
+        <h2 className={styles.list_title}>Movie</h2>
         <div className={styles.movie_wrap}>
-          {movies.map((movie) => (
-            <Movie 
-            onClick={onClick}
-            key={movie.id}
-            id={movie.id}
-            year={movie.year}
-            coverImg={movie.medium_cover_image}
-            title={movie.title}
-            summary={movie.summary}
-            genres={movie.genres}
-            />
-          ))}
+          <ul className={styles.movie_container}>
+           {movies.map((movie) => (
+             <Movie 
+             onClick={onClick}
+             key={movie.id}
+             id={movie.id}
+             coverImg={movie.medium_cover_image}
+             title={movie.title}
+             />
+             ))}
+          </ul>
+          <div className={styles.btn_wrap}>
+            <div className={styles.slide_btn}><BsChevronCompactLeft /></div>
+            <div className={styles.slide_btn}><BsChevronCompactRight /></div>
+          </div>
         </div>
       </div>
       }

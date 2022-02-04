@@ -1,4 +1,23 @@
-.movie_title {
-  display: inline-block;
+.movie {
+  background-color: #D3DEDC;
+  height: 430px;
+  padding: 5px 5px 0 5px;
+  margin: 5px;
   cursor: pointer;
+}
+
+.title_wrap {
+  width: 100%;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.movie_title {
+  display: block;
+  letter-spacing: -1px;
+  text-align: center;
+  color: black;
+  line-height: 25px;
+  margin: 0;
 }
