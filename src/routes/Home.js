@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import Movie from "../components/Movie";
 import Main from "../components/Main";
+import Default from "../components/Default";
 import styles from "./Home.module.css";
 import { BsChevronCompactLeft, BsChevronCompactRight }  from "react-icons/bs";
 
@@ -21,6 +22,12 @@ function Home(){
     setCurrent(cmovie[0]);
     console.log(cmovie[0])
   }
+  const onPrev = () => {
+
+  }
+  const onNext = () => {
+
+  }
   useEffect(()=>{
     getMovies();
   }, []);
@@ -30,7 +37,8 @@ function Home(){
       <div className={styles.wrap}>
         <div className={styles.main_wrap}>
           {
-            current == null ? <h1>No click</h1> : 
+            current == null ? 
+            <Default /> : 
             <Main 
             key={current.id}
             id={current.id}
@@ -59,8 +67,8 @@ function Home(){
              ))}
           </ul>
           <div className={styles.btn_wrap}>
-            <div className={styles.slide_btn}><BsChevronCompactLeft /></div>
-            <div className={styles.slide_btn}><BsChevronCompactRight /></div>
+            <div className={styles.slide_btn} onClick={onPrev}><BsChevronCompactLeft /></div>
+            <div className={styles.slide_btn} onClick={onNext}><BsChevronCompactRight /></div>
           </div>
         </div>
       </div>

@@ -15,19 +15,22 @@
 }
 .movie_wrap {
   display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 10px;
-  width: 100%;
+  width: 95vw;
   position: relative;
 }
 .movie_container {
-  width: 95%;
-  margin: auto;
+  display: flex;
+  width: 96%;
   list-style: none;
   overflow: hidden;
-  display: flex;
 }
+
 .slide_btn {
   position: absolute;
+  font-size: 50px;
 }
 .slide_btn:first-child {
   top: 50%;
@@ -35,5 +38,5 @@
 }
 .slide_btn:last-child {
   top: 50%;
-  right: 20px;
+  right: -20px;
 }
