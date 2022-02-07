@@ -1,0 +1,28 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  margin-bottom: 100px;
+}
+
+.icons {
+  font-size: 50px;
+}
+.icons:hover {
+  animation: updown 1s  infinite alternate;
+  
+}
+
+@keyframes updown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}

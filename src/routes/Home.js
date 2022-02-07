@@ -9,25 +9,34 @@ function Home(){
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]); // 영화 API
   const [current, setCurrent] = useState();
-
+  const [currentIdx, setCurrentIdx] = useState(0);
+  let threeTimesEvents = [];
+  // 영화 API로 영화정보 받아오기 (비동기 사용: async await)
   const getMovies = async () => {
     const json = await(
       await fetch(`https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year`)
     ).json();
-    setMovies(json.data.movies);
+    const events = json.data.movies;
+    threeTimesEvents = await [...events, ...events, ...events ];
+    setMovies(threeTimesEvents);
     setLoading(false);
   }
+  // click event
   const onClick = (event)=>{
     const cmovie = movies.filter((movie) => movie.id == event.target.id);
     setCurrent(cmovie[0]);
     console.log(cmovie[0])
   }
-  const onPrev = () => {
-
+  // btn click event(slide)
+  const onPrev = (event) => {
+    console.log(event)
   }
   const onNext = () => {
 
   }
+  useEffect(() => {
+
+  }, [currentIdx])
   useEffect(()=>{
     getMovies();
   }, []);
@@ -40,7 +49,6 @@ function Home(){
             current == null ? 
             <Default /> : 
             <Main 
-            key={current.id}
             id={current.id}
             year={current.year}
             coverImg={current.medium_cover_image}
@@ -59,7 +67,6 @@ function Home(){
            {movies.map((movie) => (
              <Movie 
              onClick={onClick}
-             key={movie.id}
              id={movie.id}
              coverImg={movie.medium_cover_image}
              title={movie.title}
